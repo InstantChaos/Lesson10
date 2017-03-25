@@ -9,33 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var games_service_1 = require("../games.service");
-var ListComponent = (function () {
-    // Constructor Method ----------------------------
-    function ListComponent(_gamesService) {
+var EditComponent = (function () {
+    function EditComponent(_router, _route, _gamesService) {
+        this._router = _router;
+        this._route = _route;
         this._gamesService = _gamesService;
-        this.games = new Array();
     }
-    // Methods ---------------------------------------
-    ListComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this._gamesService.list().subscribe(function (games) { return _this.games = games; }, function (error) { return _this.errorMessage = error; });
-    };
-    ListComponent.prototype.showConfirm = function () {
-        if (!confirm("Are you sure?")) {
-            event.preventDefault();
-            window.location.assign("/games");
-        }
-    };
-    return ListComponent;
+    return EditComponent;
 }());
-ListComponent = __decorate([
+EditComponent = __decorate([
     core_1.Component({
-        selector: 'list',
-        templateUrl: 'app/games/list/list.template.html',
+        selector: 'edit',
+        templateUrl: 'app/games/edit/edit.template.html',
         providers: [games_service_1.GamesService]
     }),
-    __metadata("design:paramtypes", [games_service_1.GamesService])
-], ListComponent);
-exports.ListComponent = ListComponent;
-//# sourceMappingURL=list.component.js.map
+    __metadata("design:paramtypes", [router_1.Router,
+        router_1.ActivatedRoute, typeof (_a = typeof games_service_1.GamesService !== "undefined" && games_service_1.GamesService) === "function" && _a || Object])
+], EditComponent);
+exports.EditComponent = EditComponent;
+var _a;
+//# sourceMappingURL=edit.component.js.map

@@ -1,5 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var Game = (function () {
     function Game(_id, name, rating, cost) {
         this._id = _id;

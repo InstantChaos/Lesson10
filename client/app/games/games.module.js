@@ -5,7 +5,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 // Angular requirements
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
@@ -17,6 +16,7 @@ var games_routes_1 = require("./games.routes");
 var games_component_1 = require("./games.component");
 // Sub Components
 var list_component_1 = require("./list/list.component");
+var edit_component_1 = require("./edit/edit.component");
 // Service
 var games_service_1 = require("./games.service");
 var GamesModule = (function () {
@@ -31,14 +31,16 @@ GamesModule = __decorate([
         ],
         declarations: [
             games_component_1.GamesComponent,
-            list_component_1.ListComponent
+            list_component_1.ListComponent,
+            edit_component_1.EditComponent
         ],
         providers: [
             games_service_1.GamesService
         ],
         exports: [
             games_component_1.GamesComponent,
-            list_component_1.ListComponent
+            list_component_1.ListComponent,
+            edit_component_1.EditComponent
         ]
     })
 ], GamesModule);

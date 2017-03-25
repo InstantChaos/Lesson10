@@ -8,7 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 require("rxjs/Rx");
 var Observable_1 = require("rxjs/Observable");
 var core_1 = require("@angular/core");
@@ -25,6 +24,12 @@ var GamesService = (function () {
         return this._http
             .get(this._baseURL)
             .map(this.extractData)
+            .catch(this.handleError);
+    };
+    GamesService.prototype.read = function (gameId) {
+        return this._http
+            .get(this._baseURL + "/" + gameId)
+            .map(function (res) { return res.json(); })
             .catch(this.handleError);
     };
     GamesService.prototype.extractData = function (res) {
