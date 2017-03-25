@@ -75,13 +75,14 @@ module.exports.ProcessRegistration = (req, res, next) => {
     email: req.body.email,
     emailVerified: true,
     password: req.body.password,
-    dislayName: req.body.displayName,
+    displayName: req.body.displayName,
     disabled: false
   })
   .then((userRecord) => {
     // sign in the user after registration
     firebaseAuth.signInWithEmailAndPassword(req.body.email, req.body.password)
     .then(()=>{
+      console.log("sign in after register: " + firebaseAuth.currentUser.dislayName);
       return res.redirect('/games');
     })
     .catch((err) =>{
